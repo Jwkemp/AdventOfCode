@@ -13,11 +13,7 @@ namespace AdventOfCode
         {            
             Vector2 childPos = new Vector2(0, 0);
             List<string> input = new List<string>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D11))
-            {
-                string txt = sr.ReadLine();
-                input.AddRange(txt.Split(','));
-            }
+            input.AddRange(Properties.Resources.input_D11.Split(','));            
 
             foreach ( string dir in input )
             {
@@ -29,19 +25,14 @@ namespace AdventOfCode
             return (childPos.x > childPos.y) ? childPos.x : childPos.y;
         }
 
-
         public static int Part2()
         {
             int highestDist = 0;
             Vector2 childPos = new Vector2(0, 0);
             List<string> input = new List<string>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D11))
-            {
-                string txt = sr.ReadLine();
-                input.AddRange(txt.Split(','));
-            }
+			input.AddRange(Properties.Resources.input_D11.Split(','));
 
-            foreach (string dir in input)
+			foreach (string dir in input)
             {
                 if (dir.Contains('n')) childPos.y += 1;
                 if (dir.Contains('e')) childPos.x += 1;

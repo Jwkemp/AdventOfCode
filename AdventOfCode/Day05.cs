@@ -12,15 +12,15 @@ namespace AdventOfCode
         public static int Part1()
         {
             List<int> input = new List<int>();
+			string inputstr = Properties.Resources.input_D5;
+			string[] inputarray = inputstr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D5))
-            {
-                while (!sr.EndOfStream)
-                {
-                    int n = Int32.Parse(sr.ReadLine());
-                    input.Add(n);
-                }
-            }
+			foreach (string s in inputarray)
+			{
+				int n = Int32.Parse(s);
+				input.Add(n);
+			}
+				
             int index = 0;
             int value = 0;
             int stepCount = 0;
@@ -30,25 +30,23 @@ namespace AdventOfCode
                 value = input[index];
                 input[index]++;
                 index += value;
-
             }
-
             return stepCount;
         }
 
         public static int Part2()
         {
-            List<int> input = new List<int>();
+			List<int> input = new List<int>();
+			string inputstr = Properties.Resources.input_D5;
+			string[] inputarray = inputstr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D5))
-            {
-                while (!sr.EndOfStream)
-                {
-                    int n = Int32.Parse(sr.ReadLine());
-                    input.Add(n);
-                }
-            }
-            int index = 0;
+			foreach (string s in inputarray)
+			{
+				int n = Int32.Parse(s);
+				input.Add(n);
+			}
+
+			int index = 0;
             int value = 0;
             int stepCount = 0;
             while (index < input.Count())
@@ -58,11 +56,8 @@ namespace AdventOfCode
                 if (input[index] >= 3) input[index]--;
                 else input[index]++;
                 index += value;
-
             }
-
             return stepCount;
         }
-
     }
 }

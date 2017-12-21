@@ -15,23 +15,22 @@ namespace AdventOfCode
             Dictionary<string, int> register = new Dictionary<string, int>();
             int output = int.MinValue;
 
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D8))
-            {
-                while (!sr.EndOfStream)
-                {
-                    Operation o = new Operation(sr.ReadLine());
-                    if (!register.ContainsKey(o.reg))
-                        register.Add(o.reg, 0);
+			string input = Properties.Resources.input_D8;
+			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+			foreach (string s in inputarray)
+			{
+				Operation o = new Operation(s);
+				if (!register.ContainsKey(o.reg))
+					register.Add(o.reg, 0);
 
-                    if (!register.ContainsKey(o.left))
-                        register.Add(o.left, 0);
+				if (!register.ContainsKey(o.left))
+					register.Add(o.left, 0);
 
-                    if (o.CheckCondition(register))
-                    {
-                        register[o.reg] += o.DoOperation();
-                    }
-                }
-            }
+				if (o.CheckCondition(register))
+				{
+					register[o.reg] += o.DoOperation();
+				}
+			}		
 
             foreach ( KeyValuePair<string,int> item in register )
             {
@@ -47,25 +46,23 @@ namespace AdventOfCode
             Dictionary<string, int> register = new Dictionary<string, int>();
             int output = int.MinValue;
 
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D8))
-            {
-                while (!sr.EndOfStream)
+			string input = Properties.Resources.input_D8;
+			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+			foreach (string s in inputarray)
+			{				
+                Operation o = new Operation(s);
+                if (!register.ContainsKey(o.reg))
+                    register.Add(o.reg, 0);
+
+                if (!register.ContainsKey(o.left))
+                    register.Add(o.left, 0);
+
+                if (o.CheckCondition(register))
                 {
-                    Operation o = new Operation(sr.ReadLine());
-                    if (!register.ContainsKey(o.reg))
-                        register.Add(o.reg, 0);
-
-                    if (!register.ContainsKey(o.left))
-                        register.Add(o.left, 0);
-
-                    if (o.CheckCondition(register))
-                    {
-                        register[o.reg] += o.DoOperation();
-                        if (register[o.reg] > output) output = register[o.reg];
-                    }
+                    register[o.reg] += o.DoOperation();
+                    if (register[o.reg] > output) output = register[o.reg];
                 }
-            }                      
-
+            }
             return output;
         }
 

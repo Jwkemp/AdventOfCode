@@ -13,44 +13,43 @@ namespace AdventOfCode
         public static int Part1()
         {
             int score = 0;
-            using ( StreamReader sr = new StreamReader(Properties.Resources.input_D9))
-            {
-                Char currentChar = ' ';
-                bool isGarbage = false;
-                bool isIgnored = false;
-                int level = 0;
+			string input = Properties.Resources.input_D9;
 
-                while ( !sr.EndOfStream )
+			Char currentChar = ' ';
+			bool isGarbage = false;
+			bool isIgnored = false;
+			int level = 0;
+			foreach (char c in input)
+			{
+				currentChar = c;
+
+                if (isIgnored)
                 {
-                    currentChar = (char)sr.Read();
-
-                    if (isIgnored)
-                    {
-                        isIgnored = false;
-                    }
-                    else if (currentChar == '!')
-                    {
-                        isIgnored = true;
-                    }
-                    else if ( isGarbage )
-                    {
-                        if (currentChar == '>') 
-                                isGarbage = false;
-                    }
-                    else if (currentChar == '<')
-                    {
-                        isGarbage = true;
-                    }
-                    else if (currentChar == '{')
-                    {
-                        level++;
-                    }
-                    else if ( currentChar == '}' )
-                    {
-                        score += level;
-                        level--;
-                    }
-                }                
+                    isIgnored = false;
+                }
+                else if (currentChar == '!')
+                {
+                    isIgnored = true;
+                }
+                else if ( isGarbage )
+                {
+                    if (currentChar == '>') 
+                            isGarbage = false;
+                }
+                else if (currentChar == '<')
+                {
+                    isGarbage = true;
+                }
+                else if (currentChar == '{')
+                {
+                    level++;
+                }
+                else if ( currentChar == '}' )
+                {
+                    score += level;
+                    level--;
+                }
+                               
             }
             return score;
         }
@@ -58,47 +57,45 @@ namespace AdventOfCode
         public static int Part2()
         {
             int score = 0;
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D9))
-            {
-                Char currentChar = ' ';
-                bool isGarbage = false;
-                bool isIgnored = false;
-                int level = 0;
+			string input = Properties.Resources.input_D9;
 
-                while (!sr.EndOfStream)
+			Char currentChar = ' ';
+			bool isGarbage = false;
+			bool isIgnored = false;
+			int level = 0;
+			foreach (char c in input)
+			{            
+                currentChar = c;
+
+                if (isIgnored)
                 {
-                    currentChar = (char)sr.Read();
-
-                    if (isIgnored)
-                    {
-                        isIgnored = false;
-                    }
-                    else if (currentChar == '!')
-                    {
-                        isIgnored = true;
-                    }
-                    else if (isGarbage)
-                    {
-                        if (currentChar == '>')
-                            isGarbage = false;
-                        else
-                            score++;
-                    }
-                    else if (currentChar == '<')
-                    {
-                        isGarbage = true;
-                    }
-                    else if (currentChar == '{')
-                    {
-                        level++;
-                    }
-                    else if (currentChar == '}')
-                    {
-                        level--;
-                    }
+                    isIgnored = false;
                 }
-            }
-            return score;
+                else if (currentChar == '!')
+                {
+                    isIgnored = true;
+                }
+                else if (isGarbage)
+                {
+                    if (currentChar == '>')
+                        isGarbage = false;
+                    else
+                        score++;
+                }
+                else if (currentChar == '<')
+                {
+                    isGarbage = true;
+                }
+                else if (currentChar == '{')
+                {
+                    level++;
+                }
+                else if (currentChar == '}')
+                {
+                    level--;
+                }
+            }            
+			return score;
         }
 
     }

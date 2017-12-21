@@ -13,19 +13,17 @@ namespace AdventOfCode
         public static string Part1()
         {
             List<TowerBit> towerBits = new List<TowerBit>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D7))
-            {
-                string input = "";
-                while (!sr.EndOfStream)
-                {
-                    input = sr.ReadLine();
-                    towerBits.Add(new TowerBit(input.Substring(0, input.IndexOf(' '))));
-                    if (input.Contains("->"))
-                    {
-                        towerBits.Last().SetHolding(input.Substring(input.IndexOf("->") + 2).Split(','));
-                    }
-                }
-            }
+			string input = Properties.Resources.input_D13;
+			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (string s in inputarray)
+			{
+				towerBits.Add(new TowerBit(s.Substring(0, s.IndexOf(' '))));
+				if (s.Contains("->"))
+				{
+					towerBits.Last().SetHolding(s.Substring(s.IndexOf("->") + 2).Split(','));
+				}
+			}
 
             string currBit = towerBits[0].name;
             bool beingHeld = true;
@@ -48,22 +46,20 @@ namespace AdventOfCode
 
         public static int Part2()
         {
-            List<TowerBit> towerBits = new List<TowerBit>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D7))
-            {
-                string input = "";
-                while (!sr.EndOfStream)
-                {
-                    input = sr.ReadLine();
-                    towerBits.Add(new TowerBit(input.Substring(0, input.IndexOf(' '))));
-                    int from = input.IndexOf('(') + 1;
-                    towerBits.Last().SetWeight(input.Substring(from, input.IndexOf(')') - from));
-                    if (input.Contains("->"))
-                    {
-                        towerBits.Last().SetHolding(input.Substring(input.IndexOf("->") + 2).Split(','));
-                    }
-                }
-            }
+			List<TowerBit> towerBits = new List<TowerBit>();
+			string input = Properties.Resources.input_D13;
+			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (string s in inputarray)
+			{
+				towerBits.Add(new TowerBit(s.Substring(0, s.IndexOf(' '))));
+				int from = s.IndexOf('(') + 1;
+				towerBits.Last().SetWeight(s.Substring(from, s.IndexOf(')') - from));
+				if (s.Contains("->"))
+				{
+					towerBits.Last().SetHolding(s.Substring(s.IndexOf("->") + 2).Split(','));
+				}
+			}
 
             TowerBit baseBit = towerBits.Find(x => x.name == "vmpywg");
             List<int> weights = new List<int>();
