@@ -12,16 +12,15 @@ namespace AdventOfCode
         public static int Part1()
         {
             Dictionary<int, int[]> pipes = new Dictionary<int, int[]>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D12))
-            {
-                while(!sr.EndOfStream)
-                {
-                    string input = sr.ReadLine();
-                    int index = int.Parse(input.Substring(0, input.IndexOf(' ')));
-                    int[] accessible = Array.ConvertAll(input.Substring(input.IndexOf('>') + 1).Split(','), s=> int.Parse(s));
-                    pipes.Add(index, accessible);
-                }
-            }
+			string[] input = Properties.Resources.input_D13.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+			foreach ( string s in input )
+			{
+				int index = int.Parse(s.Substring(0, s.IndexOf(' ')));
+				int[] accessible = Array.ConvertAll(s.Substring(s.IndexOf('>') + 1).Split(','), a => int.Parse(a));
+				pipes.Add(index, accessible);
+			}
+			
             List<int> inGroup0 = new List<int>();
             inGroup0 = (GetMembers(pipes, inGroup0, 0));
 
@@ -31,16 +30,14 @@ namespace AdventOfCode
         public static int Part2()
         {
             Dictionary<int, int[]> pipes = new Dictionary<int, int[]>();
-            using (StreamReader sr = new StreamReader(Properties.Resources.input_D12))
-            {
-                while (!sr.EndOfStream)
-                {
-                    string input = sr.ReadLine();
-                    int index = int.Parse(input.Substring(0, input.IndexOf(' ')));
-                    int[] accessible = Array.ConvertAll(input.Substring(input.IndexOf('>') + 1).Split(','), s => int.Parse(s));
-                    pipes.Add(index, accessible);
-                }
-            }
+			string[] input = Properties.Resources.input_D13.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+
+			foreach (string s in input)
+			{
+				int index = int.Parse(s.Substring(0, s.IndexOf(' ')));
+				int[] accessible = Array.ConvertAll(s.Substring(s.IndexOf('>') + 1).Split(','), a => int.Parse(a));
+				pipes.Add(index, accessible);
+			}
 
             int groupCount = 0;
             while (pipes.Count > 0)

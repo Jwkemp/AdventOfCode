@@ -13,7 +13,7 @@ namespace AdventOfCode
         public static string Part1()
         {
             List<TowerBit> towerBits = new List<TowerBit>();
-			string input = Properties.Resources.input_D13;
+			string input = Properties.Resources.input_D7;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)
@@ -47,7 +47,7 @@ namespace AdventOfCode
         public static int Part2()
         {
 			List<TowerBit> towerBits = new List<TowerBit>();
-			string input = Properties.Resources.input_D13;
+			string input = Properties.Resources.input_D7;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)

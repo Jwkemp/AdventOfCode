@@ -81,7 +81,7 @@ namespace AdventOfCode
         }
 
 
-        private static List<int> ReverseRange(List<int> ogList, int from, int length )
+        public static List<int> ReverseRange(List<int> ogList, int from, int length )
         {
             List<int> output = new List<int>();
             for (int i = 0; i < length; ++i)
@@ -97,7 +97,7 @@ namespace AdventOfCode
             return output;
         }
 
-        private static List<int> ReplaceRange(List<int> ogList, List<int> newList, int from, int length)
+		public static List<int> ReplaceRange(List<int> ogList, List<int> newList, int from, int length)
         {
             List<int> output = ogList;
             for (int i = 0; i < length; ++i)
