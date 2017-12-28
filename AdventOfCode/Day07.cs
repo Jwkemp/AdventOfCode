@@ -12,112 +12,152 @@ namespace AdventOfCode
     {
         public static string Part1()
         {
-            List<TowerBit> towerBits = new List<TowerBit>();
-			string input = Properties.Resources.input_D7;
-			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            List<Node> towerNodes = new List<Node>();
+            string input = Properties.Resources.input_D7;
+            string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
-			foreach (string s in inputarray)
-			{
-				towerBits.Add(new TowerBit(s.Substring(0, s.IndexOf(' '))));
-				if (s.Contains("->"))
-				{
-					towerBits.Last().SetHolding(s.Substring(s.IndexOf("->") + 2).Split(','));
-				}
-			}
-
-            string currBit = towerBits[0].name;
-            bool beingHeld = true;
-            while (beingHeld)
+            foreach (string s in inputarray)
             {
-                beingHeld = false;
-                foreach (TowerBit t in towerBits)
-                {
-                    if (t.holding.Contains(currBit))
-                    {
-                        currBit = t.name;
-                        beingHeld = true;
-                        break;
-                    }
-
-                }
+                towerNodes.Add(new Node(s));
             }
-            return currBit;
+
+            foreach (Node n in towerNodes)
+            {
+                foreach (string childName in n.childNames)
+                {
+                    int index = towerNodes.FindIndex(x => x.name == childName);
+                    n.children.Add(towerNodes[index]);
+                    towerNodes[index].parent = n;
+                }
+                n.totalWeight = GetTotalWeight(n, towerNodes);
+            }
+
+            foreach ( Node n in towerNodes )
+            {
+                if ( n.parent == null ) return n.name;
+            }
+            return "Not Found!";
         }
 
         public static int Part2()
         {
-			List<TowerBit> towerBits = new List<TowerBit>();
+			List<Node> towerNodes = new List<Node>();
 			string input = Properties.Resources.input_D7;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)
 			{
-				towerBits.Add(new TowerBit(s.Substring(0, s.IndexOf(' '))));
-				int from = s.IndexOf('(') + 1;
-				towerBits.Last().SetWeight(s.Substring(from, s.IndexOf(')') - from));
-				if (s.Contains("->"))
-				{
-					towerBits.Last().SetHolding(s.Substring(s.IndexOf("->") + 2).Split(','));
-				}
+				towerNodes.Add(new Node(s));				
 			}
 
-            TowerBit baseBit = towerBits.Find(x => x.name == "vmpywg");
-            List<int> weights = new List<int>();
-            foreach (string name in baseBit.holding)
-            {
-                TowerBit tb = towerBits.Find(x => x.name == name);
-                weights.Add(GetTotalWeight(towerBits.Find(x => x.name == name), towerBits));
+            foreach(Node n in towerNodes)
+            {               
+                foreach (string childName in n.childNames)
+                {
+                    int index = towerNodes.FindIndex(x => x.name == childName);
+                    n.children.Add(towerNodes[index]);
+                    towerNodes[index].parent = n;                    
+                }
+                n.totalWeight = GetTotalWeight(n, towerNodes);
             }
 
-            // WRONG - find the node that needs to be adjusted, not at the base.
+            Node node = towerNodes.Find( x => x.name == "vmpywg");
+            int targetWeight = 0;
 
-            List<int> weightsDistinct = weights.Distinct().ToList();
-            if (weights.FindAll(x => x == weightsDistinct[0]).Count > 1)
-                return weightsDistinct[0];
-            else
-                return weightsDistinct[1];
+            while (!node.IsBalanced())
+            {
+                var weights = node.children.GroupBy(x => x.totalWeight).OrderBy(x => x.Count());
+                targetWeight = weights.Last().Key;
+                node = weights.First().First();
+            }
+
+            var weightDiff = targetWeight - node.totalWeight;
+            return (node.weight + weightDiff);
 
         }
 
-        private static int GetTotalWeight(TowerBit tb, List<TowerBit> towerBits)
+        private static int FixBalance(string baseNode, List<Node> towerBits)
+        {
+            Node baseBit = towerBits.Find(x => x.name == baseNode);            
+            // Get children
+            List<int> childIndex = new List<int>();
+            List<int> childWeights = new List<int>();
+            foreach (string name in baseBit.childNames)
+            {
+                childIndex.Add(towerBits.FindIndex(x => x.name == name));
+                childWeights.Add(GetTotalWeight(towerBits[childIndex.Last()], towerBits));
+            }
+
+            // Get child with odd weight
+            Node nextBit = null; 
+            foreach (int i in childIndex)
+            {
+                if (childWeights.Where(f => f == GetTotalWeight(towerBits[i], towerBits)).Count() == 1 )
+                {
+                    // has odd weight
+                    nextBit = towerBits[i];
+                    break;
+                }                
+            }       
+
+            if (nextBit != null && nextBit.childNames.Count() > 0 )
+            {
+                var r = FixBalance(nextBit.name, towerBits);
+                if ( r == 0)
+                {
+                    return 5;
+                }
+                return r;
+            }
+            else
+            {
+                return 0;
+            }            
+        }
+
+        private static int GetTotalWeight(Node tb, List<Node> towerBits)
         {
             int weight = tb.weight;
-            foreach (string name in tb.holding)
+            foreach (string name in tb.childNames)
             {
                 // Get to towerBit
-                TowerBit str = towerBits.Find(x => x.name == name);
+                Node str = towerBits.Find(x => x.name == name);
                 weight += GetTotalWeight(str, towerBits);
             }
             return weight;
         }
 
-        private class TowerBit
+        private class Node
         {
-            public string name;
-            public List<string> holding;
-            public int weight;
+            public string name { get; private set; }
+            public int weight { get; private set; }
+            public int totalWeight { get; set; }
+            public List<string> childNames;
+            public List<Node> children { get; set; }
+            public Node parent { get; set; }
 
-            public TowerBit(string _name = "")
+            public Node(string input)
             {
-                name = _name;
-                holding = new List<string>();
-                weight = 0;
-            }
+                name = input.Substring(0, input.IndexOf(' '));                
+                
+                int from = input.IndexOf('(') + 1;
+                weight = int.Parse(input.Substring(from, input.IndexOf(')') - from));
 
-            public void SetHolding(string[] _holding)
-            {
-                foreach (string s in _holding)
+                childNames = new List<string>();
+                if (input.Contains("->"))
                 {
-                    holding.Add(Regex.Replace(s, @"\s+", ""));
+                    childNames.AddRange((input.Substring(input.IndexOf("->") + 2).Split(',')));
+                    for (int i = 0; i < childNames.Count; ++i) childNames[i] = childNames[i].Trim();
                 }
+
+                children = new List<Node>();
+                parent = null;
             }
 
-            public void SetWeight(string s)
+            public bool IsBalanced()
             {
-                weight = int.Parse(s);
-            }
-
+                return children.GroupBy(x => x.totalWeight).Count() == 1;                 
+            }                    
         }
-
     }
 }

@@ -6,12 +6,24 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
-    class Program
+    class Day15
     {
-        static void Main(string[] args)
+
+        public static int Part1()
         {
-            Console.WriteLine(Day07.Part2());
-            Console.ReadLine();
+
+
+            return 1;
         }
+
+
+        public static int Part2()
+        {
+
+
+
+            return 1;
+        }
+
     }
 }

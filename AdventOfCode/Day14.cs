@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Drawing;
 
 namespace AdventOfCode
 {
 	class Day14
 	{
-		
-
-		public static int Part1()
+        public static int Part1()
 		{
 			int output = 0;
 			for (int i = 0; i < 128; ++i)
@@ -36,12 +33,18 @@ namespace AdventOfCode
 
 			for (int i = 0; i < size; ++i)
 			{
-				string s = KnotHash("oundnydw-" + i);
+                string s = KnotHash("oundnydw-" + i);
 				string r = "";
 				foreach (char c in s)
 				{
 					int decValue = Convert.ToInt16(c.ToString(), 16);
-					r += Convert.ToString(decValue, 2);
+
+                    string t = Convert.ToString(decValue, 2);
+                    for (int p = t.Length; p < 4; ++p)
+                    {
+                        t = "0" + t;
+                    }                                 
+                    r += t;
 				}
 				for (int j = 0; j < r.Length; ++j)
 				{
@@ -49,21 +52,8 @@ namespace AdventOfCode
 				}
 			}
 
-
-			using (Bitmap b = new Bitmap(128, 128))
-			{
-				for (int x = 0; x < size; ++x)
-				{
-					for (int y = 0; y < size; ++y)
-					{
-						if (disc[x, y] == 1) b.SetPixel(x, y, Color.Black);
-						else b.SetPixel(x, y, Color.White);
-					}
-				}
-				b.Save("C:\\bin\\Before.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
-			}
-			// Set up regions
-			int regionNum = 2;
+            // Set up regions
+            int regionNum = 2;
 			for (int x = 0; x < size; ++x)
 			{
 				for (int y = 0; y < size; ++y)
@@ -74,21 +64,9 @@ namespace AdventOfCode
 						regionNum++;
 					}
 				}
-			}
+			}         
 
-			using (Bitmap b = new Bitmap(128, 128))
-			{
-				Random rand = new Random();
-				for (int x = 0; x < size; ++x)
-				{
-					for (int y = 0; y < size; ++y)
-					{
-						b.SetPixel(x, y, GetColour(rand));
-					}
-				}
-				b.Save("C:\\bin\\After.bmp", System.Drawing.Imaging.ImageFormat.Bmp);
-			}
-			return regionNum;
+            return regionNum-2;
 		}
 
 		private static void AssignToRegion(int[,] disc, int x, int y, int region)
@@ -96,7 +74,7 @@ namespace AdventOfCode
 			if (disc[x, y] == 1)
 			{
 				disc[x, y] = region;
-				if (x < 127)
+				if (x < disc.GetLength(0)-1 )
 				{
 					if (disc[x + 1, y] == 1) //right
 					{
@@ -111,7 +89,7 @@ namespace AdventOfCode
 					}
 				}
 
-				if (y < 127)
+				if (y < disc.GetLength(0)-1)
 				{
 					if (disc[x, y + 1] == 1) //down
 					{
@@ -172,17 +150,6 @@ namespace AdventOfCode
 			return output;
 		}
 
-		private static void SetColour(int i)
-		{
-			if (i > 15) Console.ForegroundColor = ConsoleColor.Yellow;
-			else        Console.ForegroundColor = (ConsoleColor)(i);
-			
-		}
-
-		private static Color GetColour(Random r)
-		{
-			return Color.FromArgb(r.Next(0,255), r.Next(0, 255), r.Next(0, 255));
-		}
-
+        
 	}
 }
