@@ -127,6 +127,12 @@
   <data name="input_D13" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Input\input_D13.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="input_D16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d16.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="input_D18" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d18.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="input_D4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Input\input_D4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>

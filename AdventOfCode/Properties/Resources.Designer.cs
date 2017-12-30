@@ -106,16 +106,111 @@ namespace AdventOfCode.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0: 3
-        ///1: 3
+        ///   Looks up a localized string similar to 0: 4
+        ///1: 2
         ///2: 3
-        ///3: 3
-        ///4: 3
-        ///.
+        ///4: 4
+        ///6: 6
+        ///8: 5
+        ///10: 6
+        ///12: 6
+        ///14: 6
+        ///16: 12
+        ///18: 8
+        ///20: 9
+        ///22: 8
+        ///24: 8
+        ///26: 8
+        ///28: 8
+        ///30: 12
+        ///32: 10
+        ///34: 8
+        ///36: 12
+        ///38: 10
+        ///40: 12
+        ///42: 12
+        ///44: 12
+        ///46: 12
+        ///48: 12
+        ///50: 14
+        ///52: 14
+        ///54: 12
+        ///56: 12
+        ///58: 14
+        ///60: 14
+        ///62: 14
+        ///66: 14
+        ///68: 14
+        ///70: 14
+        ///72: 14
+        ///74: 14
+        ///78: 18
+        ///80: 14
+        ///82: 14
+        ///88: 18
+        ///92: 17.
         /// </summary>
         internal static string input_D13 {
             get {
                 return ResourceManager.GetString("input_D13", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to x3/10,pl/g,s9,x6/15,s10,x9/1,pi/c,x4/10,s15,x13/7,s7,x11/6,s14,x5/7,pj/b,x15/9,s9,x14/5,pg/i,x9/12,s5,x1/5,s11,pe/f,x10/7,pm/a,x13/1,po/i,x3/2,s10,x14/4,pj/a,x3/8,s8,x12/14,s1,pc/i,x2/6,pb/e,x12/5,s9,x14/9,s6,pl/m,x5/15,pj/o,x0/4,pd/p,x14/6,s2,x12/10,s3,x1/4,ph/n,x8/15,po/d,x7/14,pg/p,x4/1,pe/k,x10/15,s3,x8/3,pj/c,s14,x7/12,pl/p,x4/14,s12,x11/6,s7,x1/9,ph/n,x4/2,s5,pp/o,x15/10,pf/n,x2/6,pi/a,s11,x7/12,pm/l,x2/15,pc/f,s13,x3/6,s3,x14/12,pp/d,x5/7,s5,x3/11,pj/b,x0/5,s6,x3/6,s9,x11/1,s1,x10/6,s6,x7/9,pn/e,x4/1 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string input_D16 {
+            get {
+                return ResourceManager.GetString("input_D16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to set i 31
+        ///set a 1
+        ///mul p 17
+        ///jgz p p
+        ///mul a 2
+        ///add i -1
+        ///jgz i -2
+        ///add a -1
+        ///set i 127
+        ///set p 622
+        ///mul p 8505
+        ///mod p a
+        ///mul p 129749
+        ///add p 12345
+        ///mod p a
+        ///set b p
+        ///mod b 10000
+        ///snd b
+        ///add i -1
+        ///jgz i -9
+        ///jgz a 3
+        ///rcv b
+        ///jgz b -1
+        ///set f 0
+        ///set i 126
+        ///rcv a
+        ///rcv b
+        ///set p a
+        ///mul p -1
+        ///add p b
+        ///jgz p 4
+        ///snd a
+        ///set a b
+        ///jgz 1 3
+        ///snd b
+        ///set f 1
+        ///add i -1
+        ///jgz i -11
+        ///snd a
+        ///jgz f -16
+        ///jgz a -19.
+        /// </summary>
+        internal static string input_D18 {
+            get {
+                return ResourceManager.GetString("input_D18", resourceCulture);
             }
         }
         
