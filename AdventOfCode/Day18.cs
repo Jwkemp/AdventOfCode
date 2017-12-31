@@ -1,106 +1,105 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace AdventOfCode
 {
     class Day18
     {
-        public static int Part1()
+        public static long Part1()
         {
-            Dictionary<string, int> registers = new Dictionary<string, int>();
+            Dictionary<string, long> registers = new Dictionary<string, long>();
             var cmds = Properties.Resources.input_D18.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
-            int lastValueSent = 0;
-            int temp = 0;
+            long lastValueSent = 0;
 
-            for ( int i = 0; i < cmds.Length; ++i )
+            long index = 0;
+            while ( index >= 0 && index < cmds.Length )
             {
-                var cmdSplit = cmds[i].Split(' ');
-
-                switch (cmdSplit[0] )
+                var cmdSplit = cmds[index].Split(' ');
+                switch (cmdSplit[0])
                 {
-                    case "snd":                        
-                        if (registers.TryGetValue(cmdSplit[1], out temp))
-                        {
-                            lastValueSent = temp;
-                        }
+                    case "snd":
+                        long temp = 0;
+                        lastValueSent = Send(cmdSplit[1], ref registers, out temp) ? temp : lastValueSent;
                         break;
 
-                    case "set":
-                        if (registers.ContainsKey(cmdSplit[1]))
-                        {
-                            registers[cmdSplit[1]] = GetValue(cmdSplit[2], registers);
-                        }
-                        else
-                        {
-                            registers.Add(cmdSplit[1], GetValue(cmdSplit[2], registers));
-                        }
-
-                        break;
-
-                    case "add":
-                        if (registers.ContainsKey(cmdSplit[1]))
-                        {
-                            registers[cmdSplit[1]] += GetValue(cmdSplit[2], registers);
-        }
-                        else
-                        {
-                            registers.Add(cmdSplit[1], GetValue(cmdSplit[2], registers));
-                        }
-                        break;
-
-                    case "mul":
-                        if (registers.ContainsKey(cmdSplit[1]))
-                        {
-                            registers[cmdSplit[1]] *= GetValue(cmdSplit[2], registers);
-        }
-                        else
-                        {
-                            registers.Add(cmdSplit[1], 0);
-                        }
-                        break;
-
-                    case "mod":
-                        if (registers.ContainsKey(cmdSplit[1]))
-                        {
-                            registers[cmdSplit[1]] = registers[cmdSplit[1]] % GetValue(cmdSplit[2], registers);
-                        }
-                        else
-                        {
-                            registers.Add(cmdSplit[1], 0);
-                        }
-                        break;
+                    case "set": Set(cmdSplit[1], cmdSplit[2], ref registers); break;
+                    case "add": Add(cmdSplit[1], cmdSplit[2], ref registers); break;
+                    case "mul": Multiply(cmdSplit[1], cmdSplit[2], ref registers); break;
+                    case "mod": Modulo(cmdSplit[1], cmdSplit[2], ref registers); break;
 
                     case "rcv":
-                        if ( GetValue(cmdSplit[1],registers) != 0 )
+                        if (GetValue(cmdSplit[1], ref registers) != 0)
                             return lastValueSent;
                         break;
-
-                    case "jgz":
-                        if (GetValue(cmdSplit[1], registers) != 0)
-                        {
-                            i += (GetValue(cmdSplit[2], registers) )- 1;
-                        }
-                        break;
                 }
+                if (cmdSplit[0] == "jgz")                
+                    index += Jump(cmdSplit[1], cmdSplit[2], ref registers);                
+                else
+                    index++;
             }
-
-
             return 1;
         }
 
-        public static int Part2()
+        private static bool Send(string regID, ref Dictionary<string,long> reg, out long sent)
         {
-            
-            return 1;
+            long temp = 0;
+            if (reg.TryGetValue(regID, out temp))
+            {
+                sent = temp;
+                return true;
+            }
+            sent = 0;
+            return false;
         }
 
-        public static int GetValue(string s, Dictionary<string, int> registers)
+        private static void Set(string regID, string val, ref Dictionary<string,long> reg)
         {
-            int temp = 0;
-            if (int.TryParse(s, out temp))
+            if (reg.ContainsKey(regID))
+                reg[regID] = GetValue(val, ref reg);            
+            else            
+                reg.Add(regID, GetValue(val, ref reg));            
+        }
+
+        private static void Add(string regID, string val, ref Dictionary<string, long> reg)
+        {
+            if (reg.ContainsKey(regID))            
+                reg[regID] += GetValue(val, ref reg);            
+            else            
+                reg.Add(regID, GetValue(val, ref reg));            
+        }
+
+        private static void Modulo(string regID, string val, ref Dictionary<string, long> reg)
+        {
+            if (reg.ContainsKey(regID))            
+                reg[regID] = reg[regID] % GetValue(val, ref reg);            
+            else            
+                reg.Add(regID, 0);            
+        }
+        
+        private static void Multiply(string regID, string val, ref Dictionary<string, long> reg)
+        {
+            if (reg.ContainsKey(regID))            
+                reg[regID] *= GetValue(val, ref reg);            
+            else            
+                reg.Add(regID, 0);            
+        }
+
+        private static long Jump(string regID, string val, ref Dictionary<string, long> reg)
+        {
+            if (GetValue(regID, ref reg) > 0)
+                return (GetValue(val, ref reg));
+            else
+                return 1;
+        }
+
+        private static long GetValue(string s, ref Dictionary<string, long> registers)
+        {
+            long temp = 0;
+            if (long.TryParse(s, out temp))
             {
                 return temp;
             }
@@ -116,5 +115,6 @@ namespace AdventOfCode
                 }
             }
         }
+
     }
 }
