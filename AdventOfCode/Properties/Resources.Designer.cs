@@ -215,6 +215,21 @@ namespace AdventOfCode.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to      |          
+        ///     |  +--+    
+        ///     A  |  C    
+        /// F---|----E|--+ 
+        ///     |  |  |  D 
+        ///     +B-+  +--+ 
+        ///.
+        /// </summary>
+        internal static string input_D19 {
+            get {
+                return ResourceManager.GetString("input_D19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to nyot babgr babgr kqtu kqtu kzshonp ylyk psqk
         ///iix ewj rojvbkk phrij iix zuajnk tadv givslju ewj bda
         ///isjur jppvano vctnpjp ngwzdq pxqfrk mnxxes zqwgnd giqh
