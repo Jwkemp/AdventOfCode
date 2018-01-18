@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode
 {
+	using Vector2 = Tools.Vector2;
+
     class Day03
     {
         private const int input = 265149;
@@ -119,18 +121,5 @@ namespace AdventOfCode
             }
             return currCellvalue;
         }
-
-        private class Vector2
-        {
-            public int x;
-            public int y;
-
-            public Vector2(int _x, int _y)
-            {
-                x = _x;
-                y = _y;
-            }
-        }
-
     }
 }

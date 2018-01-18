@@ -7,7 +7,9 @@ using System.IO;
 
 namespace AdventOfCode
 {
-    class Day11
+	using Vector2 = Tools.Vector2;
+
+	class Day11
     {
         public static int Part1()
         {            
@@ -43,18 +45,6 @@ namespace AdventOfCode
                 if (childPos.y > highestDist) highestDist = childPos.y;
             }
             return highestDist;
-        }
-
-        private class Vector2
-        {
-            public int x;
-            public int y;
-
-            public Vector2(int _x, int _y)
-            {
-                x = _x;
-                y = _y;
-            }
         }
     }
 }
