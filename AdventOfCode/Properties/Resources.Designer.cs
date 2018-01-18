@@ -215,17 +215,32 @@ namespace AdventOfCode.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to      |          
-        ///     |  +--+    
-        ///     A  |  C    
-        /// F---|----E|--+ 
-        ///     |  |  |  D 
-        ///     +B-+  +--+ 
-        ///.
+        ///   Looks up a localized string similar to                                                                                                                                                                                        |                 
+        ///     +-------------------------------------------------------------------------------------------------------+                           +-+   +---------------------------------------|-------------+   
+        ///     |                                                                                                     [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D19 {
             get {
                 return ResourceManager.GetString("input_D19", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to p=&lt;-1724,-1700,5620&gt;, v=&lt;44,-10,-107&gt;, a=&lt;2,6,-9&gt;
+        ///p=&lt;551,3425,4570&gt;, v=&lt;-21,-7,-182&gt;, a=&lt;0,-10,0&gt;
+        ///p=&lt;-524,-3400,2495&gt;, v=&lt;22,19,5&gt;, a=&lt;0,9,-8&gt;
+        ///p=&lt;-123,-125,419&gt;, v=&lt;25,54,-12&gt;, a=&lt;-2,-5,-2&gt;
+        ///p=&lt;-3811,3483,1459&gt;, v=&lt;162,-112,-26&gt;, a=&lt;9,-12,-8&gt;
+        ///p=&lt;-827,475,771&gt;, v=&lt;52,-26,0&gt;, a=&lt;0,0,-6&gt;
+        ///p=&lt;293,1547,-669&gt;, v=&lt;-18,-93,-12&gt;, a=&lt;0,0,6&gt;
+        ///p=&lt;-251,-165,2787&gt;, v=&lt;16,-3,-160&gt;, a=&lt;0,2,-2&gt;
+        ///p=&lt;-907,-309,-565&gt;, v=&lt;-11,-96,75&gt;, a=&lt;8,14,-5&gt;
+        ///p=&lt;277,265,394&gt;, v=&lt;-80,-8,89&gt;, a=&lt;8,-2,-16&gt;
+        ///p=&lt;158,-1933,779&gt;, v=&lt;-34,29,39 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string input_D20 {
+            get {
+                return ResourceManager.GetString("input_D20", resourceCulture);
             }
         }
         

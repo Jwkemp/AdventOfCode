@@ -68,6 +68,8 @@
     <Compile Include="Day17.cs" />
     <Compile Include="Day18.cs" />
     <Compile Include="Day19.cs" />
+    <Compile Include="Day20.cs" />
+    <Compile Include="Day21.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -87,6 +89,7 @@
     <None Include="Input\input_D16.txt" />
     <None Include="Input\input_D18.txt" />
     <None Include="Input\input_D19.txt" />
+    <None Include="Input\input_D20.txt" />
     <Content Include="Input\input_D4.txt" />
     <Content Include="Input\input_D5.txt" />
     <Content Include="Input\input_D7.txt" />
