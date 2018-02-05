@@ -17,5 +17,33 @@ namespace AdventOfCode.Tools
 			y = _y;
 		}
 
+		public static bool operator ==(Vector2 l, Vector2 r )
+		{
+			return l.x == r.x && l.y == r.y;
+		}
+		public static bool operator !=(Vector2 l, Vector2 r)
+		{
+			return l.x != r.x && l.y != r.y;
+		}
+
+		public override bool Equals(object obj)
+		{
+			Vector2 v = (Vector2)obj;
+			if (x == v.x)
+			{
+				if ( y == v.y )
+				{
+					return true;
+				}
+			}
+			return false;
+
+			//return x == v.x && y == v.y;
+		}
+
+		public override int GetHashCode()
+		{
+			return 17 * x.GetHashCode() + y.GetHashCode();
+		}
 	}
 }

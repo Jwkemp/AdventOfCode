@@ -118,6 +118,21 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="input_D04" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d04.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="input_D05" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d05.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="input_D07" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d07.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="input_D08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d08.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
+  </data>
+  <data name="input_D09" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d09.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
   <data name="input_D11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Input\input_D11.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -139,19 +154,10 @@
   <data name="input_D20" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\input\input_d20.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="input_D4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Input\input_D4.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="input_D21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d21.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="input_D5" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Input\input_D5.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="input_D7" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Input\input_D7.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="input_D8" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Input\input_D8.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
-  <data name="input_D9" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Input\input_D9.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="input_D22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d22.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

@@ -11,7 +11,7 @@ namespace AdventOfCode
     {
         public static int Part1()
         {
-			string inputStr = Properties.Resources.input_D4;
+			string inputStr = Properties.Resources.input_D04;
 			string[] lines = inputStr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 			int numOfValidPasswords = 0;
 			foreach (string line in lines)
@@ -26,7 +26,7 @@ namespace AdventOfCode
         // Can I be more efficient? Less loops pls >_<
         public static int Part2()
         {
-			string inputStr = Properties.Resources.input_D4;
+			string inputStr = Properties.Resources.input_D04;
 			string[] lines = inputStr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 			int numOfValidPasswords = 0;
             bool isValid = true;

@@ -86,6 +86,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Input\input_D22.txt" />
+    <None Include="Input\input_D21.txt" />
     <None Include="Input\input_D11.txt" />
     <None Include="Input\input_D12.txt" />
     <None Include="Input\input_D13.txt" />
@@ -93,11 +95,11 @@
     <None Include="Input\input_D18.txt" />
     <None Include="Input\input_D19.txt" />
     <None Include="Input\input_D20.txt" />
-    <Content Include="Input\input_D4.txt" />
-    <Content Include="Input\input_D5.txt" />
-    <Content Include="Input\input_D7.txt" />
-    <Content Include="Input\input_D8.txt" />
-    <Content Include="Input\input_D9.txt" />
+    <Content Include="Input\input_D04.txt" />
+    <Content Include="Input\input_D05.txt" />
+    <Content Include="Input\input_D07.txt" />
+    <Content Include="Input\input_D08.txt" />
+    <Content Include="Input\input_D09.txt" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

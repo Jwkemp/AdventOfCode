@@ -15,7 +15,7 @@ namespace AdventOfCode
             Dictionary<string, int> register = new Dictionary<string, int>();
             int output = int.MinValue;
 
-			string input = Properties.Resources.input_D8;
+			string input = Properties.Resources.input_D08;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 			foreach (string s in inputarray)
 			{
@@ -46,7 +46,7 @@ namespace AdventOfCode
             Dictionary<string, int> register = new Dictionary<string, int>();
             int output = int.MinValue;
 
-			string input = Properties.Resources.input_D8;
+			string input = Properties.Resources.input_D08;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 			foreach (string s in inputarray)
 			{				

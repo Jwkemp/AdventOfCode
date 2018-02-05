@@ -13,7 +13,7 @@ namespace AdventOfCode
         public static string Part1()
         {
             List<Node> towerNodes = new List<Node>();
-            string input = Properties.Resources.input_D7;
+            string input = Properties.Resources.input_D07;
             string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
             foreach (string s in inputarray)
@@ -42,7 +42,7 @@ namespace AdventOfCode
         public static int Part2()
         {
 			List<Node> towerNodes = new List<Node>();
-			string input = Properties.Resources.input_D7;
+			string input = Properties.Resources.input_D07;
 			string[] inputarray = input.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)

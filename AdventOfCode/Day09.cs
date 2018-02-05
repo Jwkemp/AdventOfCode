@@ -13,7 +13,7 @@ namespace AdventOfCode
         public static int Part1()
         {
             int score = 0;
-			string input = Properties.Resources.input_D9;
+			string input = Properties.Resources.input_D09;
 
 			Char currentChar = ' ';
 			bool isGarbage = false;
@@ -57,7 +57,7 @@ namespace AdventOfCode
         public static int Part2()
         {
             int score = 0;
-			string input = Properties.Resources.input_D9;
+			string input = Properties.Resources.input_D09;
 
 			Char currentChar = ' ';
 			bool isGarbage = false;

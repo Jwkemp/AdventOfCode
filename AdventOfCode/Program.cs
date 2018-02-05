@@ -10,7 +10,7 @@ namespace AdventOfCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Day20.Part2());
+            Console.WriteLine(Day22.Part1());
             Console.ReadLine();
         }
     }

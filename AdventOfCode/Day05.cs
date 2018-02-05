@@ -12,7 +12,7 @@ namespace AdventOfCode
         public static int Part1()
         {
             List<int> input = new List<int>();
-			string inputstr = Properties.Resources.input_D5;
+			string inputstr = Properties.Resources.input_D05;
 			string[] inputarray = inputstr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)
@@ -37,7 +37,7 @@ namespace AdventOfCode
         public static int Part2()
         {
 			List<int> input = new List<int>();
-			string inputstr = Properties.Resources.input_D5;
+			string inputstr = Properties.Resources.input_D05;
 			string[] inputarray = inputstr.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
 
 			foreach (string s in inputarray)
