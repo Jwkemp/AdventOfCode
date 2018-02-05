@@ -8,6 +8,8 @@ namespace AdventOfCode
 {
 	enum Direction { up, right, down, left};
 
+	enum Infection { clean, weak, infected, flagged }
+
 	class Day22
 	{
 		public static int Part1()
@@ -31,7 +33,23 @@ namespace AdventOfCode
 			}
 			
 			return infectedCount;
-		}		
+		}
+
+		public static int Part2()
+		{
+			int infectedCount = 0;
+			Tools.Vector2 currentNode = new Tools.Vector2(0, 0);
+			Direction currentDir = Direction.up;
+			Dictionary<Tools.Vector2, Infection> map = new Dictionary<Tools.Vector2, Infection>();
+			ReadInput2(Properties.Resources.input_D22, ref map, ref currentNode);
+
+			for (int i = 0; i < 10000000; ++i)
+			{
+				Move2(ref currentDir, ref currentNode, ref map, ref infectedCount);				
+			}
+
+			return infectedCount;
+		}
 
 		private  static void WriteToConsole(ref Dictionary<Tools.Vector2, bool> map, Tools.Vector2 pos )
 		{
@@ -98,6 +116,26 @@ namespace AdventOfCode
 			middle = new Tools.Vector2(inputs[0].Length / 2, inputs.Length / 2);
 		}
 
+		private static void ReadInput2(string input, ref Dictionary<Tools.Vector2, Infection> map, ref Tools.Vector2 middle)
+		{
+			string[] inputs = Properties.Resources.input_D22.Split(new[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+			for (int i = 0; i < inputs.Length; ++i)
+			{
+				for (int j = 0; j < inputs[i].Length; ++j)
+				{
+					if (inputs[i][j] == '.')
+					{
+						map.Add(new Tools.Vector2(j, i), Infection.clean);
+					}
+					else if (inputs[i][j] == '#')
+					{
+						map.Add(new Tools.Vector2(j, i), Infection.infected);
+					}
+				}
+			}
+			middle = new Tools.Vector2(inputs[0].Length / 2, inputs.Length / 2);
+		}
+
 		private static void Move(ref Direction d, ref Tools.Vector2 pos, ref Dictionary<Tools.Vector2, bool> map, ref int infected)
 		{
 			// Turn
@@ -148,6 +186,80 @@ namespace AdventOfCode
 			}
 		}
 
+		private static void Move2(ref Direction d, ref Tools.Vector2 pos, ref Dictionary<Tools.Vector2, Infection> map, ref int infected)
+		{
+			// Turn
+			bool success = map.ContainsKey(pos);
+			if (success)
+			{
+				switch (map[pos])
+				{
+					case Infection.clean:
+						d = TurnLeft(d);
+						break;
+
+					case Infection.weak:
+						// do not turn
+						break;
+
+					case Infection.infected:
+						d = TurnRight(d);
+						break;
+
+					case Infection.flagged:
+						d = TurnAround(d);
+						break;
+
+					default:
+						throw new Exception("SHUT DOWN EVERYTHING");
+						break;
+				}
+			}
+			else
+			{
+				map.Add(new Tools.Vector2(pos.x, pos.y), 0);
+				d = TurnLeft(d);
+			}
+
+			// Increase Node
+			map[pos] = IncInfection(map[pos]);
+			if (map[pos] == Infection.infected)
+				infected++;
+
+			// Move
+			switch (d)
+			{
+				case Direction.up:
+					pos.y--;
+					break;
+
+				case Direction.right:
+					pos.x++;
+					break;
+
+				case Direction.down:
+					pos.y++;
+					break;
+
+				case Direction.left:
+					pos.x--;
+					break;
+
+				default:
+					throw new Exception("erm wut?");
+			}
+		}
+
+		private static Infection IncInfection(Infection currentLevel)
+		{
+			if (currentLevel != Infection.flagged)			
+				currentLevel++;			
+			else			
+				currentLevel = Infection.clean;
+
+			return currentLevel;
+		}
+
 		private static Direction TurnRight( Direction dir )
 		{
 			if (dir != Direction.left)
@@ -168,6 +280,16 @@ namespace AdventOfCode
 			return dir;
 		}
 
-
+		private static Direction TurnAround(Direction dir)
+		{
+			switch (dir)
+			{
+				case Direction.up:		return Direction.down; 
+				case Direction.right:	return Direction.left; 
+				case Direction.left:	return Direction.right; 
+				case Direction.down:	return Direction.up;
+			}
+			return dir;
+		}
 	}
 }
