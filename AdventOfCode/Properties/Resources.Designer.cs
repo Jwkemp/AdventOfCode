@@ -71,7 +71,8 @@ namespace AdventOfCode.Properties {
         ///wchrl pzibt nvcae wceb
         ///rdwytj kxuyet bqnzlv nyntjan dyrpsn zhi kbxlj ivo
         ///dab mwiz bapjpz jbzppa
-        ///hbcudl tsfvtc zlqgpuk xoxbuh whmo atsxt pzkivuo wsa gjoevr hbcudl        /// [rest of string was truncated]&quot;;.
+        ///hbcudl tsfvtc zlqgpuk xoxbuh whmo atsxt pzkivuo wsa gjoevr hbcudl
+        ///gxhqamx dr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D04 {
             get {
@@ -192,7 +193,35 @@ namespace AdventOfCode.Properties {
         ///-90
         ///-108
         ///-79
-        ///- [rest of string was truncated]&quot;;.
+        ///-25
+        ///-41
+        ///-96
+        ///-88
+        ///-3
+        ///-67
+        ///-91
+        ///-28
+        ///-19
+        ///-103
+        ///-88
+        ///-70
+        ///-18
+        ///-64
+        ///-59
+        ///-49
+        ///-88
+        ///-110
+        ///-83
+        ///-68
+        ///-17
+        ///-61
+        ///-33
+        ///-88
+        ///-29
+        ///-56
+        ///-78
+        ///-20
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D05 {
             get {
@@ -224,7 +253,9 @@ namespace AdventOfCode.Properties {
         ///cqokt (1487) -&gt; sjmfsib, ubspq, wsaugv
         ///ekorcyg (67)
         ///sfyxd (83)
-        ///trkiub (65) [rest of string was truncated]&quot;;.
+        ///trkiub (65)
+        ///muvvc (92)
+        ///wfhzyz (224 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D07 {
             get {
@@ -254,6 +285,7 @@ namespace AdventOfCode.Properties {
         ///gsz dec -910 if xrh != 3
         ///mh dec -129 if a &lt;= 5
         ///yor inc -772 if a == 0
+        ///y dec 248 if cj &gt; -9
         /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D08 {
@@ -308,7 +340,9 @@ namespace AdventOfCode.Properties {
         ///24 &lt;-&gt; 24, 986
         ///25 &lt;-&gt; 1758
         ///26 &lt;-&gt; 1780
-        ///27 &lt;-&gt; 622, 7 [rest of string was truncated]&quot;;.
+        ///27 &lt;-&gt; 622, 748
+        ///28 &lt;-&gt; 1048, 1617
+        ///29 &lt;-&gt; [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D12 {
             get {
@@ -428,7 +462,7 @@ namespace AdventOfCode.Properties {
         /// <summary>
         ///   Looks up a localized string similar to                                                                                                                                                                                        |                 
         ///     +-------------------------------------------------------------------------------------------------------+                           +-+   +---------------------------------------|-------------+   
-        ///     |                                                                                                     [rest of string was truncated]&quot;;.
+        ///     |                                                                                                       [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D19 {
             get {
@@ -447,7 +481,7 @@ namespace AdventOfCode.Properties {
         ///p=&lt;-251,-165,2787&gt;, v=&lt;16,-3,-160&gt;, a=&lt;0,2,-2&gt;
         ///p=&lt;-907,-309,-565&gt;, v=&lt;-11,-96,75&gt;, a=&lt;8,14,-5&gt;
         ///p=&lt;277,265,394&gt;, v=&lt;-80,-8,89&gt;, a=&lt;8,-2,-16&gt;
-        ///p=&lt;158,-1933,779&gt;, v=&lt;-34,29,39 [rest of string was truncated]&quot;;.
+        ///p=&lt;158,-1933,779&gt;, v=&lt;-34,29,39&gt;, a=&lt;3,14 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D20 {
             get {
@@ -484,7 +518,8 @@ namespace AdventOfCode.Properties {
         ///#.####.##..###.#####.##..
         ///.###.##...#.#.#.##....#.#
         ///#...######...#####.###.#.
-        ///#.####.#.#..#...##.###...        /// [rest of string was truncated]&quot;;.
+        ///#.####.#.#..#...##.###...
+        ///####.#.....###..## [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D22 {
             get {
@@ -529,6 +564,70 @@ namespace AdventOfCode.Properties {
         internal static string input_D23 {
             get {
                 return ResourceManager.GetString("input_D23", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 31/13
+        ///34/4
+        ///49/49
+        ///23/37
+        ///47/45
+        ///32/4
+        ///12/35
+        ///37/30
+        ///41/48
+        ///0/47
+        ///32/30
+        ///12/5
+        ///37/31
+        ///7/41
+        ///10/28
+        ///35/4
+        ///28/35
+        ///20/29
+        ///32/20
+        ///31/43
+        ///48/14
+        ///10/11
+        ///27/6
+        ///9/24
+        ///8/28
+        ///45/48
+        ///8/1
+        ///16/19
+        ///45/45
+        ///0/4
+        ///29/33
+        ///2/5
+        ///33/9
+        ///11/7
+        ///32/10
+        ///44/1
+        ///40/32
+        ///2/45
+        ///16/16
+        ///1/18
+        ///38/36
+        ///34/24
+        ///39/44
+        ///32/37
+        ///26/46
+        ///25/33
+        ///9/10
+        ///0/29
+        ///38/8
+        ///33/33
+        ///49/19
+        ///18/20
+        ///49/39
+        ///18/39
+        ///26/13
+        ///19/32.
+        /// </summary>
+        internal static string input_D24 {
+            get {
+                return ResourceManager.GetString("input_D24", resourceCulture);
             }
         }
     }
