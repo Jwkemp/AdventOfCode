@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AdventOfCode.Tools;
 
 namespace AdventOfCode
 {
@@ -10,24 +11,62 @@ namespace AdventOfCode
 	{
 		public static int Part1()
 		{
-            List<ArtistRule3> artistRules = new List<ArtistRule3>();
+            List<ArtistRule> artistRules = new List<ArtistRule>();
 
-            artistRules.Add(new ArtistRule3());
+            var lines = Properties.Resources.input_D21.Split("\r\n".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+            foreach (string line in lines)
+            {
+                string input = line.Substring(0, line.IndexOf(' '));
+                Matrix<bool> m;
+                if (input.Length == 5)
+                {
+                    m = new Matrix<bool>(
+                        input[0] == '.', input[1] == '.', 
+                        input[3] == '.', input[4] == '.');
+                }
+                else
+                {
+                    m = new Matrix<bool>(
+                        input[0] == '.', input[1] == '.', input[2]  == '.',
+                        input[4] == '.', input[5] == '.', input[6]  == '.',
+                        input[8] == '.', input[9] == '.', input[10] == '.');
+                }
 
-            Matrix3 a = new Matrix3(1, 2, 3, 4, 5, 6, 7, 8, 9);
-            Matrix3 b = Matrix3.Rotate90(a);
-            Matrix3 c = Matrix3.Rotate90(b);
-            Matrix3 d = Matrix3.Rotate90(c);
+                string output = line.Substring(line.IndexOf('>')+2);
+                Matrix<bool> n;
+                if (output.Length == 5)
+                {
+                    n = new Matrix<bool>(
+                        output[0] == '.', output[1] == '.',
+                        output[3] == '.', output[4] == '.');
+                }
+                else if (output.Length == 11 )
+                {
+                    n = new Matrix<bool>(
+                        output[0] == '.', output[1] == '.', output[2]  == '.',
+                        output[4] == '.', output[5] == '.', output[6]  == '.',
+                        output[8] == '.', output[9] == '.', output[10] == '.');
+                }
+                else
+                {
+                    n = new Matrix<bool>(
+                        output[0]  == '.', output[1]  == '.', output[2]  == '.', output[3]  == '.',
+                        output[5]  == '.', output[6]  == '.', output[7]  == '.', output[8]  == '.',
+                        output[10] == '.', output[11] == '.', output[12] == '.', output[13] == '.',
+                        output[15] == '.', output[16] == '.', output[17] == '.', output[18] == '.');                   
+                }
+                artistRules.Add(new ArtistRule(m, n));
+            }     
 
-            artistRules.Last().rules.Add(a);
-            artistRules.Last().rules.Add(b);
-            artistRules.Last().rules.Add(c);
-            artistRules.Last().rules.Add(d);
+            // if grid length % 2
+            // rules of 2 
 
-            artistRules.Last().rules.Add(Matrix3.Flip(a));
-            artistRules.Last().rules.Add(Matrix3.Flip(b));
-            artistRules.Last().rules.Add(Matrix3.Flip(c));
-            artistRules.Last().rules.Add(Matrix3.Flip(d));
+            // else 
+            // rules of 3
+
+
+
+
 
             return 0;
 		}
@@ -40,110 +79,30 @@ namespace AdventOfCode
 
 	}
 
-    class ArtistRule3
+    class ArtistRule
     {
-        public List<Matrix3> rules = new List<Matrix3>();
-        public Matrix2 output;
+        public List<Matrix<bool>> rules;
+        public Matrix<bool> output;
 
-    }
-
-    class ArtistRule2
-    {
-        public List<Matrix2> rules = new List<Matrix2>();
-        public Matrix3 output;
-
-    }
-
-
-    class Matrix3
-    {
-        int[,] values = new int[3,3];
-
-        public Matrix3()
+        public ArtistRule(Matrix<bool> inputRule, Matrix<bool> outputRule )
         {
-            values[0, 0] = 0;
-            values[0, 1] = 0;
-            values[0, 2] = 0;
+            rules = new List<Matrix<bool>>();
 
-            values[1, 0] = 0;
-            values[1, 1] = 0;
-            values[1, 2] = 0;
+            Matrix<bool> b = Matrix<bool>.Rotate90(inputRule);
+            Matrix<bool> c = Matrix<bool>.Rotate90(b);
+            Matrix<bool> d = Matrix<bool>.Rotate90(c);
 
-            values[2, 0] = 0;
-            values[2, 1] = 0;
-            values[2, 2] = 0;
+            rules.Add(inputRule);
+            rules.Add(b);
+            rules.Add(c);
+            rules.Add(d);
+            rules.Add(Matrix<bool>.Flip(inputRule));
+            rules.Add(Matrix<bool>.Flip(b));
+            rules.Add(Matrix<bool>.Flip(c));
+            rules.Add(Matrix<bool>.Flip(d));
+
+            output = outputRule;
         }
-
-        public Matrix3(int a, int b, int c, int d, int e, int f, int g, int h, int i)
-        {
-            values[0, 0] = a;
-            values[0, 1] = b;
-            values[0, 2] = c;
-
-            values[1, 0] = d;
-            values[1, 1] = e;
-            values[1, 2] = f;
-
-            values[2, 0] = g;
-            values[2, 1] = h;
-            values[2, 2] = i;
-        }
-
-        public static Matrix3 Rotate90( Matrix3 original )
-        {
-            Matrix3 result = new Matrix3();
-
-            result.values[0, 0] = original.values[2, 0];
-            result.values[0, 1] = original.values[1, 0];
-            result.values[0, 2] = original.values[0, 0];
-
-            result.values[1, 0] = original.values[2, 1];
-            result.values[1, 1] = original.values[1, 1];
-            result.values[1, 2] = original.values[0, 1];
-
-            result.values[2, 0] = original.values[2, 2];
-            result.values[2, 1] = original.values[1, 2];
-            result.values[2, 2] = original.values[0, 2];
-
-            return result;
-        }
-
-        public static Matrix3 Flip( Matrix3 original)
-        {
-            Matrix3 result = new Matrix3();
-
-            result.values[0, 0] = original.values[2, 0];
-            result.values[0, 1] = original.values[2, 1];
-            result.values[0, 2] = original.values[2, 2];
-
-            result.values[1, 0] = original.values[1, 0];
-            result.values[1, 1] = original.values[1, 1];
-            result.values[1, 2] = original.values[1, 2];
-
-            result.values[2, 0] = original.values[0, 0];
-            result.values[2, 1] = original.values[0, 1];
-            result.values[2, 2] = original.values[0, 2];
-
-            return result;
-        }
-
-    }
-
-    class Matrix2
-    {
-        int[,] values = new int[2, 2];
-
-
-        public Matrix2()
-        {
-            values[0, 0] = 0;
-            values[0, 1] = 0;
-            values[1, 0] = 0;
-            values[1, 1] = 0;
-
-
-        } 
-
 
     }
 
