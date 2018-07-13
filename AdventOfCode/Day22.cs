@@ -212,7 +212,6 @@ namespace AdventOfCode
 
 					default:
 						throw new Exception("SHUT DOWN EVERYTHING");
-						break;
 				}
 			}
 			else

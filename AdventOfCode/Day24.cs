@@ -153,7 +153,6 @@ namespace AdventOfCode
     {
         public int value;
         public Magnet north, south;
-        public bool inUse;
 
         public Component(int _north, int _south)
         {
