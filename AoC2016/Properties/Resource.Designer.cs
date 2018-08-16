@@ -136,5 +136,29 @@ namespace AoC2016.Properties {
                 return ResourceManager.GetString("input_D04", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to eedadn
+        ///drvtee
+        ///eandsr
+        ///raavrd
+        ///atevrs
+        ///tsrnev
+        ///sdttsa
+        ///rasrtv
+        ///nssdts
+        ///ntnada
+        ///svetve
+        ///tesnvt
+        ///vntsnd
+        ///vrdear
+        ///dvrsen
+        ///enarar.
+        /// </summary>
+        internal static string input_D06 {
+            get {
+                return ResourceManager.GetString("input_D06", resourceCulture);
+            }
+        }
     }
 }

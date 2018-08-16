@@ -10,8 +10,8 @@ namespace AoC2016
     {
         static void Main(string[] args)
         {
-            IDay day = new Day05();
-     //       Console.WriteLine(day.Part1().ToString());
+            IDay day = new Day06();
+            Console.WriteLine(day.Part1().ToString());
             Console.WriteLine(day.Part2().ToString());
             Console.ReadLine();
 
