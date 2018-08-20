@@ -52,6 +52,8 @@
     <Compile Include="Day04.cs" />
     <Compile Include="Day05.cs" />
     <Compile Include="Day06.cs" />
+    <Compile Include="Day07.cs" />
+    <Compile Include="Day08.cs" />
     <Compile Include="IDay.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input\input_D01.txt" />
+    <Content Include="Input\input_D07.txt" />
     <Content Include="Input\input_D06.txt" />
     <Content Include="Input\input_D04.txt" />
     <Content Include="Input\input_D03.txt" />

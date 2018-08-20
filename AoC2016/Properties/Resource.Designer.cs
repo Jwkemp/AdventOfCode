@@ -138,26 +138,74 @@ namespace AoC2016.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to eedadn
-        ///drvtee
-        ///eandsr
-        ///raavrd
-        ///atevrs
-        ///tsrnev
-        ///sdttsa
-        ///rasrtv
-        ///nssdts
-        ///ntnada
-        ///svetve
-        ///tesnvt
-        ///vntsnd
-        ///vrdear
-        ///dvrsen
-        ///enarar.
+        ///   Looks up a localized string similar to vlmbsivg
+        ///wjskjzff
+        ///hmcodblh
+        ///nvohhghm
+        ///xainmzpz
+        ///frkckyrg
+        ///zqdmvmee
+        ///sbsqzlju
+        ///eqdnsvqi
+        ///xdmyqmxk
+        ///gchzzkci
+        ///unjukwld
+        ///fmnpwrnf
+        ///huvyqxkt
+        ///uxekmktg
+        ///pdzxhbfa
+        ///khlkjqhk
+        ///ravznzpy
+        ///btpqmfzt
+        ///tcnpghzn
+        ///yuplhxzr
+        ///ablaihve
+        ///gjdehjcu
+        ///dvmkpskx
+        ///lukbiacr
+        ///ttrzcksg
+        ///ecfehhzq
+        ///octwtlsc
+        ///colisfrx
+        ///svtipfzv
+        ///kaffxell
+        ///rsmdpuic
+        ///viaidaip
+        ///drbezwvb
+        ///tyhnjseu
+        ///weuopaqc
+        ///igmqdwiz
+        ///gerzveig
+        ///bnqltmlo
+        ///jgwcxybe
+        ///iaabqazu
+        ///bgflkfyt
+        ///boznsgas
+        ///agiyktkz
+        ///ivvnbvuv
+        ///tospvglb
+        ///vxfhcvkz
+        ///kshbpxws
+        ///uejxthhb
+        ///vyffdirv
+        ///ibfywjob
+        ///cp [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D06 {
             get {
                 return ResourceManager.GetString("input_D06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to abba[mnop]qrst
+        ///abcd[bddb]xyyx
+        ///aaaa[qwer]tyui
+        ///ioxxoj[asdfgh]zxcvbn.
+        /// </summary>
+        internal static string input_D07 {
+            get {
+                return ResourceManager.GetString("input_D07", resourceCulture);
             }
         }
     }
