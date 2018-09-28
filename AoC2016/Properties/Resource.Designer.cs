@@ -198,14 +198,56 @@ namespace AoC2016.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to abba[mnop]qrst
-        ///abcd[bddb]xyyx
-        ///aaaa[qwer]tyui
-        ///ioxxoj[asdfgh]zxcvbn.
+        ///   Looks up a localized string similar to rhamaeovmbheijj[hkwbkqzlcscwjkyjulk]ajsxfuemamuqcjccbc
+        ///gdlrknrmexvaypu[crqappbbcaplkkzb]vhvkjyadjsryysvj[nbvypeadikilcwg]jwxlimrgakadpxu[dgoanojvdvwfabtt]yqsalmulblolkgsheo
+        ///dqpthtgufgzjojuvzvm[eejdhpcqyiydwod]iingwezvcbtowwzc[uzlxaqenhgsebqskn]wcucfmnlarrvdceuxqc[dkwcsxeitcobaylhbvc]klxammurpqgmpsxsr
+        ///gmmfbtpprishiujnpdi[wedykxqyntvrkfdzom]uidgvubnregvorgnhm
+        ///txxplravpgztjqcw[txgmmtlhmqpmmwp]bmhfgpmafxqwtrpr[inntmjmgqothdzfqgxq]cvtwvembpvdmcvk
+        ///gkxjhpayoyrrpcr[mwyoahlkqyhtznyzrm]mvmurvsrgjunjjepn[mkoumuoh [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string input_D07 {
             get {
                 return ResourceManager.GetString("input_D07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rect 1x1
+        ///rotate row y=0 by 7
+        ///rect 1x1
+        ///rotate row y=0 by 5
+        ///rect 1x1
+        ///rotate row y=0 by 5
+        ///rect 1x1
+        ///rotate row y=0 by 2
+        ///rect 1x1
+        ///rotate row y=0 by 3
+        ///rect 1x1
+        ///rotate row y=0 by 5
+        ///rect 1x1
+        ///rotate row y=0 by 3
+        ///rect 1x1
+        ///rotate row y=0 by 2
+        ///rect 1x1
+        ///rotate row y=0 by 3
+        ///rect 2x1
+        ///rotate row y=0 by 7
+        ///rect 6x1
+        ///rotate row y=0 by 3
+        ///rect 2x1
+        ///rotate row y=0 by 2
+        ///rect 1x2
+        ///rotate row y=1 by 10
+        ///rotate row y=0 by 3
+        ///rotate column x=0 by 1
+        ///rect 2x1
+        ///rotate column x=20 by 1
+        ///rotate column x=15 by 1
+        ///rot [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string input_D08 {
+            get {
+                return ResourceManager.GetString("input_D08", resourceCulture);
             }
         }
     }

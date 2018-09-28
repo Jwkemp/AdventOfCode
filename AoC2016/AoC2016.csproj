@@ -74,6 +74,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Input\input_D01.txt" />
+    <Content Include="Input\input_D08.txt" />
     <Content Include="Input\input_D07.txt" />
     <Content Include="Input\input_D06.txt" />
     <Content Include="Input\input_D04.txt" />

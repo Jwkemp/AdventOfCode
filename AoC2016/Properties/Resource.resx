@@ -136,4 +136,7 @@
   <data name="input_D07" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\input\input_d07.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="input_D08" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\input\input_d08.txt;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>
