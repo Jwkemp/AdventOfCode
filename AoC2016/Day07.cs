@@ -8,8 +8,6 @@ namespace AoC2016
 {
     class Day07 : IDay
     {
-
-        // Doesnt Work! Needs to support > 1 hypernet
         private string[] GetInput()
         {            
             var lines = Properties.Resource.input_D07.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
@@ -68,7 +66,6 @@ namespace AoC2016
             var ips = GetInput();
 
             bool inHypernet;
-            bool supportsSSL;
             int result = 0;
 
             List<string> BABs = new List<string>();
@@ -76,7 +73,6 @@ namespace AoC2016
             foreach (string ip in ips)
             {
                 inHypernet = false;
-                supportsSSL = false;
                 BABs.Clear();
                 for (int i = 0; i < ip.Length - 2; ++i)
                 {
